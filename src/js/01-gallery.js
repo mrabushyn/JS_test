@@ -1,32 +1,40 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 // Change code below this line
+// import * as basicLightbox from "basiclightbox";
 
-console.log(galleryItems.description);
+const galleryMainContainer = document.querySelector(".gallery");
 
-const galleryDiv = document.querySelector(".gallery")
-// const galleryItem = galleryDiv.childNodes;  
-console.log(galleryDiv);
+const galleryListItem = createListItem(galleryItems);
 
-for (let i = 0; i < galleryItems.length; i += 1) {
-    const galleryItem = document.createElement("li");
-    const galleryImg = document.createElement("img");
-    console.log(galleryImg);
-// const r = "<img class="gallery__image" src= ${"galleryItems.description"} alt=""></img>"
-            
-    galleryItem.insertAdjacentHTML(
-        "beforeend", "<img></img> ");
+function createListItem(items) {
+    return items.map(({ preview, original, description }) => `<div class="gallery__item">
+  <a class="gallery__link" href="large-image.jpg">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
+</div>`
+        )
+        .join("");
+}
 
-    galleryItem.classList.add(".gallery__item");
-    console.log(galleryItem);
+galleryMainContainer.insertAdjacentHTML("beforeend", galleryListItem);
+
+galleryMainContainer.addEventListener("click", bigPhoto);
+
+function bigPhoto(event) {
+    event.preventDefault();
+    // console.log(event.target.dataset.source);
+    if (!event.target.classList.contains("gallery__image"))
+    return;
+
+    const instance = basicLightbox.create(`<img src="${event.target.dataset.source}">`);
+instance.show();
+
+
 }
 
 
-
-    // const galleryImg = document.createElement("img");
-
-    // const galleryItem = galleryDiv.children[i];
-
-    // console.log(galleryItem);
-
-// console.log(galleryDiv);
-// list.insertAdjacentHTML("beforeend", ingredientsList.join(""));
