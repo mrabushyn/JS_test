@@ -1,5 +1,23 @@
 {
-  "dependencies": {
-    "simplelightbox": "^2.10.3"
-  }
+    "dependencies": {
+        "simplelightbox": "^2.10.3"
+    },
+    "name": "js_test",
+    "version": "1.0.0",
+    "main": "app.js",
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mrabushyn/JS_test.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mrabushyn/JS_test/issues"
+    },
+    "homepage": "https://github.com/mrabushyn/JS_test#readme",
+    "description": ""
 }
