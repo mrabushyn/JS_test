@@ -1,11 +1,9 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
-
-console.log(galleryItems);
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 const mainGalleryItemsContainer = document.querySelector('.gallery');
-console.log(mainGalleryItemsContainer);
 
 const createGallery = galleryItem(galleryItems);
 
@@ -32,6 +30,13 @@ mainGalleryItemsContainer.insertAdjacentHTML("beforeend", createGallery);
 //     if (!evt.target.classList.contains('gallery__image')) 
 //     return;
 
+// import SimpleLightbox from "simplelightbox";
+
+// var lightbox = $(".gallery").simpleLightbox({
+//     captionPosition: "bottom",
+//     captionDelay: 500,
+// });
+
 
 var lightbox = new SimpleLightbox(".gallery a", {
     captionPosition: "bottom",
@@ -39,3 +44,6 @@ var lightbox = new SimpleLightbox(".gallery a", {
 });
     // lightbox()
 // }
+
+
+// console.log("asdfasdasd");
